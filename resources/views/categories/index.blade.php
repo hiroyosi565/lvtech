@@ -20,6 +20,8 @@
             @endforeach
         </div>
         <div class="back">[<a href="/">back</a>]</div>
+        
+        //paginateとは項目が上限を超すと新たに次のページアクセスできるようになっている。
         <div class='paginate'>
             {{ $posts->links() }}
         </div>
