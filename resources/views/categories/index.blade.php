@@ -14,11 +14,14 @@
                 <div class='post'>
                     <a href='/posts/{{ $post->id }}'><h2 class='title'>{{ $post->title }}</h2></a>
                     <p class='body'>{{ $post->body }}</p>
-                    <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
+                    <a href="{{ $post->category->id }}">{{ $post->category->name }}</a>
                     <p class='delete'><button onclick="return deletePost(this);">削除</button></p>
                 </div>
             @endforeach
         </div>
+        <div class="back">[<a href="/">back</a>]</div>
+        
+        <!--paginateとは項目が上限を超すと新たに次のページアクセスできるようになっている。-->
         <div class='paginate'>
             {{ $posts->links() }}
         </div>
