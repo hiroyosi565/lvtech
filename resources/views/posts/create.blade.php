@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!DOCTYPE HTML>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -6,6 +9,12 @@
     </head>
     <body>
         <h1>Blog Name</h1>
+        <form action="{{ action('PostsController@create') }}" method="post" enctype="multipart/form-data">
+        <!-- アップロードフォームの作成 -->
+        <input type="file" name="image">
+            {{ csrf_field() }}
+            <input type="submit" value="アップロード">
+        </form>
         <form action="/posts" method="POST">
             @csrf
             <div class="title">
@@ -31,3 +40,4 @@
         <div class="back">[<a href="/">back</a>]</div>
     </body>
 </html>
+@endsection

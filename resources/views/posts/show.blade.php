@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!DOCTYPE HTML>
 <html lang="{{ str_replace("_", "-", app()->getLocale()) }}">
     <head>
@@ -10,7 +13,7 @@
     </head>
     <body>
         <h1>Blog Name</h1>
-        <p class='edit'>[<a href='/posts/{{ $post->id }}/edit'>更新</a>]</p>
+        <p class='edit'>[<a href='/posts/{{ $post->id }}/edit'>編集</a>]</p>
         <form action="/posts/{{ $post->id }}" id="form_delete" method="post">
             {{ csrf_field() }}
             {{ method_field('delete')}}
@@ -34,3 +37,4 @@
         </script>
     </body>
 </html>
+@endsection
